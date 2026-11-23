@@ -1,17 +1,17 @@
+
 import pyttsx3
-
-# Create voice engine
-engine = pyttsx3.init()
-
-# Voice settings
-engine.setProperty("rate", 150)
-engine.setProperty("volume", 1.0)
-
 
 def speak(message):
     print("Voice:", message)
-    engine.say(message)
+
+    # Create a fresh voice engine for each message
+    engine = pyttsx3.init()
+    engine.setProperty("rate", 150)
+    engine.setProperty("volume", 1.0)
+
+    engine.say(str(message))
     engine.runAndWait()
+    engine.stop()
 
 
 if __name__ == "__main__":
